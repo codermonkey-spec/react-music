@@ -1,0 +1,135 @@
+.app-header {
+  height: 70px;
+  box-sizing: border-box;
+  background: #242424;
+  border-bottom: 5px solid #C20C0C;
+  color: #fff;
+
+
+  :global {
+    .header-wrap {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      // align-items: center;
+
+
+      .left {
+        height: 100%;
+        display: flex;
+
+        .logo {
+          width: 176px;
+          height: 69px;
+          background-position: 0 0;
+          cursor: pointer;
+        }
+
+        .nav {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          // overflow: hidden;
+
+          a {
+            text-decoration: none;
+            color: #ccc;
+            padding: 0 19px;
+            text-align: center;
+            line-height: 70px;
+            font-size: 14px;
+            position: relative;
+            height: 100%;
+
+            &.active {
+              background: #000;
+              color: #fff;
+
+
+              .bottom-arrow {
+                top: 59px;
+                background-position: -105px -70px;
+                background-size: 120px auto;
+                display: block;
+                position: absolute;
+                left: 50%;
+                width: 12px;
+                height: 7px;
+                margin-left: -6px;
+                overflow: hidden;
+              }
+            }
+
+            &:last-child {
+              .hot {
+                display: block;
+                position: absolute;
+                top: 21px;
+                left: 100px;
+                width: 28px;
+                height: 19px;
+                background-position: -190px 0;
+                z-index: 99;
+              }
+            }
+          }
+
+
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+
+        .ant-input-affix-wrapper {
+          border-color: #fff;
+        }
+
+        .search {
+          width: 158px;
+          height: 32px;
+          background-color: #fff;
+          border-radius: 32px;
+          outline: none;
+
+          input::placeholder {
+            font-size: 12px;
+          }
+        }
+
+        .center {
+          width: 90px;
+          height: 32px;
+          box-sizing: border-box;
+          padding-left: 16px;
+          border: 1px solid #4F4F4F;
+          background-position: 0 -140px;
+          line-height: 33px;
+          color: #ccc;
+          border-radius: 20px;
+          margin-left: 12px;
+          cursor: pointer;
+
+          &:hover {
+            border-color: #fff;
+            color:#fff;
+          }
+        }
+
+        .login {
+          display: block;
+          width: 28px;
+          color: #787878;
+          margin-left: 20px;
+          cursor: pointer;
+          &:hover {
+            background-color: #2b2b2b;
+          }
+        }
+      }
+
+    }
+
+  }
+}

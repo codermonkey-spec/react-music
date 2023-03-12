@@ -1,0 +1,39 @@
+.discover {
+  :global {
+    .nav2 {
+      display: flex;
+      height: 30px;
+      box-sizing: border-box;
+      background-color: #C20C0C;
+      border-bottom: 1px solid #a40011;
+
+      .nav2-wrap {
+        display: flex;
+        align-items: center;
+        padding-left: 180px;
+
+        .nav-item {
+          height: 20px;
+          margin: 3px 17px 0;
+          line-height: 21px;
+          display: flex;
+          align-items: center;
+
+          a {
+            color: #fff;
+            border-radius: 20px;
+            padding: 0 13px;
+            &.active {
+              background: #9B0909;
+            }
+            &:hover {
+              border-radius: 20px;
+              padding: 0 13px;
+              background: #9B0909;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.swiper {
+  :global {
+    .swiper-wrap {
+      position: relative;
+      // overflow-y: hidden;
+
+      .slick-dots {
+        width: 254px;
+        // height: 285px;
+        position: absolute;
+        left: 50%;
+        top: 259px;
+        transform: translateX(-100%);
+      }
+
+      .dots {
+        
+      }
+
+      .swiper-item {
+
+        img {
+          width: 730px;
+        }
+      }
+
+      .download {
+        background-position: 0 0;
+        position: absolute;
+        top: 0;
+        z-index: 20;
+        right: -1px;
+        width: 254px;
+        height: 100%;
+      }
+
+
+
+      .btn {
+        width: 37px;
+        height: 63px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        margin-top: -31px;
+
+        &.prev {
+          background-image: url("../../../../assets/img/banner-control-left.png");
+          left: -68px;
+          background-position: 0 -381px
+        }
+
+        &.next {
+          background-image: url("../../../../assets/img/banner-control-right.png");
+          right: -68px;
+          background-position: 0 -508px
+        }
+      }
+    }
+  }
+}
