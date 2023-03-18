@@ -1,0 +1,106 @@
+.ranking-item {
+  width: 230px;
+
+ :global {
+  .ranking-item-top {
+    display: inline-flex;
+    padding: 20px 0 20px 19px;
+
+    .img {
+      width: 80px;
+      height: 80px;
+      position: relative;
+
+      .cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-position: -145px -57px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .ranking-name {
+      width: 116px;
+      margin: 6px 0 0 10px;
+
+      .text {
+        color: #333;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .opt {
+        margin-top: 10px;
+        .opt-item {
+          display: inline-block;
+          width: 22px;
+          height: 22px;
+          margin-right: 10px;
+          text-indent: -9999px;
+        }
+        .play {
+          background-position: -267px -205px;
+        }
+
+        .file {
+          background-position: -300px -205px;
+        }
+      }
+    }
+  }
+
+  .ranking-item-list {
+    height: 319px;
+    margin-left: 50px;
+    line-height: 32px;
+    .list-item {
+      display: flex;
+      align-items: center;
+      color: #666;
+      cursor: pointer;
+      .list-item-left {
+        display: flex;
+        align-items: center;
+        line-height: 32px;
+        > div:first-child {
+          position: relative;
+          width: 35px;
+          height: 32px;
+          margin-left: -35px;
+          text-align: center;
+          
+          font-size: 16px;
+        }
+        .hot {
+          color: #c10d0c;
+        }
+
+        > div:nth-child(2) {
+          color: #000;
+        }
+      }
+      
+      .list-item-right {
+
+      }
+
+    }
+
+    .more {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 32px;
+      height: 32px;
+    }
+  }
+ }
+}

@@ -1,0 +1,49 @@
+import type { rankingInfoType } from "@/service/api/recommend";
+import classNames from "classnames";
+import React, { memo } from "react";
+
+import styles from "./style.less";
+
+type RankingSongsListProps = {
+  data: rankingInfoType;
+};
+
+const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
+  return (
+    <div className={styles["ranking-item"]}>
+      <div className="ranking-item-top">
+        <div className="img">
+          <img src={data.playlist?.coverImgUrl} alt="" />
+          <div className="sprite_cover cover"></div>
+        </div>
+        <div className="ranking-name">
+          <span className="text">{data.playlist?.name}</span>
+          <div className="opt">
+            <span className="sprite_02 opt-item play"></span>
+            <span className="sprite_02 opt-item file"></span>
+          </div>
+        </div>
+      </div>
+      <div className="ranking-item-list">
+        {data.playlist?.tracks
+          ?.slice(0, 10)
+          .map((item, index) => {
+            return (
+              <div key={item?.name} className="list-item">
+                <div className="list-item-left">
+                  <div className={classNames({ hot: index < 3 })}>
+                    {index + 1}
+                  </div>
+                  <div>{item?.name}</div>
+                </div>
+                <div className="list-item-right"></div>
+              </div>
+            );
+          })
+          .concat(<div className="more">查看更多&gt;</div>)}
+      </div>
+    </div>
+  );
+});
+
+export default RankingSongsList;

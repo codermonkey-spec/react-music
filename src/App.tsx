@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import { routes } from "@/router";
 
 import AppHeader from "@/components/app-header";
+import AppFooter from "@/components/app-footer";
 
 export default function App() {
   return (
@@ -11,7 +12,7 @@ export default function App() {
       <React.Suspense fallback="loading...">
         <div>{useRoutes(routes)}</div>
       </React.Suspense>
-      <div>app-footer</div>
+      <AppFooter />
     </div>
   );
 }

@@ -27,6 +27,7 @@ const Swiper: React.FC<swiperPropsType> = ({ data }) => {
       opacity: 1,
     },
     config: { duration: 1000 },
+    reset: true,
   });
 
   const handleChange = (from: number, to: number) => {
@@ -39,7 +40,6 @@ const Swiper: React.FC<swiperPropsType> = ({ data }) => {
     }
   };
 
-  console.log();
   return (
     <animated.div
       className={styles.swiper}
@@ -55,6 +55,7 @@ const Swiper: React.FC<swiperPropsType> = ({ data }) => {
           ref={bannerRef}
           dots={{ className: "dots" }}
           effect="fade"
+          autoplay
         >
           {data.map((item) => {
             return (

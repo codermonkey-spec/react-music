@@ -1,0 +1,19 @@
+.hot-recommend {
+
+  :global {
+    .recommend-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+
+      >div {
+        &:first-child {
+          margin-left: 0;
+        }
+        &:nth-child(4n + 1) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
