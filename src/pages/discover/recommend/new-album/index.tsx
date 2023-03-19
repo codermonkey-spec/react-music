@@ -1,5 +1,5 @@
 import type { CarouselRef } from "antd/lib/carousel";
-import type { newAlbumItemType } from "@/service/api/recommend";
+import type { newAlbumItemType } from "@/service/api/album";
 
 import React, { memo, useRef } from "react";
 import { Carousel } from "antd";

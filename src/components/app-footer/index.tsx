@@ -1,6 +1,5 @@
 import React, { memo, Fragment } from "react";
 import type { FC, ReactNode } from "react";
-import { FooterLeft, FooterRight } from "./style.less";
 import { footerLinks, footerImages } from "@/assets/data/local-data";
 
 import styles from "./style.less";

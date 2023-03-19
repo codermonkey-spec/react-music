@@ -37,38 +37,6 @@ export const getHotRecommend: requestApi<hotRecommendType> = () => {
   return request("/personalized", { method: "get" });
 };
 
-export type newAlbumItemType = {
-  /** 封面图 */
-  picUrl: string;
-  artists: {
-    /** 专辑作者名称 */
-    name: string;
-    [key: string]: any;
-  }[];
-  /** 专辑名称 */
-  name: string;
-  [key: string]: any;
-};
-
-export type newAlbumListType = {
-  albums: newAlbumItemType[];
-  code: number;
-  total: number;
-};
-/** 新碟上架 */
-export const getNewAlbum: requestApi<newAlbumListType> = (
-  offset: number = 0,
-  limit: number = 10
-) => {
-  return request("/album/new", {
-    method: "get",
-    params: {
-      offset,
-      limit,
-    },
-  });
-};
-
 /** 榜单id */
 export enum ranking_id {
   TOP = 19723756,

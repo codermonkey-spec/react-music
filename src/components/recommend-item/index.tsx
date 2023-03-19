@@ -1,7 +1,6 @@
 import type { hotRecommendItem } from "@/service/api/recommend";
 
 import React, { memo } from "react";
-
 import { formatPlayCount } from "@/utils";
 
 import styles from "./style.less";

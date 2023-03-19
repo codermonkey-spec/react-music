@@ -1,0 +1,59 @@
+.album {
+  background: #fff;
+  :global {
+    .album-content {
+      padding: 40px;
+      border: 1px solid #d3d3d3;
+      box-sizing: border-box;
+
+      .album-title {
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+
+      .album-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        > div {
+          margin-left: 33px;
+          margin-bottom: 45px;
+        }
+
+        > div:nth-child(5n + 1) {
+          margin-left: 0;
+        }
+      }
+
+      .footer-pagination {
+        display: flex;
+        justify-content: center;
+        .ant-pagination-item {
+          // width: 24px;
+          height: 24px;
+          min-width: 24px;
+          line-height: 24px;
+          text-align: center;
+          box-sizing: border-box;
+          background-position: 0 -650px;
+          border-color: #ccc;
+          color: #fff;
+          cursor: default;
+          font-size: 12px;
+          border-radius: 1px;
+          &.ant-pagination-item-active {
+            background-color: #A2161B;
+            > a {
+              color: #fff;
+            }
+          }
+        }
+        // .ant-pagination-options {
+        //   display: none;
+        // }
+      }
+    }
+  }
+}

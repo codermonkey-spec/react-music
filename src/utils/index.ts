@@ -1,4 +1,4 @@
-import type { newAlbumItemType } from "@/service/api/recommend";
+import type { newAlbumItemType } from "@/service/api/album";
 
 export const formatPlayCount = (playCount: number) => {
   if (playCount > 100000000) {

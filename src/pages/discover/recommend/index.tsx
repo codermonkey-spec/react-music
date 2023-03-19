@@ -1,18 +1,18 @@
 import type {
   bannerListType,
   hotRecommendItem,
-  newAlbumItemType,
   rankingInfoType,
 } from "@/service/api/recommend";
+import type { newAlbumItemType } from "@/service/api/album";
 
 import React, { memo, useEffect, useState } from "react";
 import {
   getBanners,
   getHotRecommend,
-  getNewAlbum,
   getRankingSongs,
   ranking_id,
 } from "@/service/api/recommend";
+import { getNewAlbum } from "@/service/api/album";
 import { hotRadios } from "@/assets/data/local-data";
 
 import styles from "./style.less";
