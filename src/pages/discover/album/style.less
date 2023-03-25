@@ -30,8 +30,42 @@
       .footer-pagination {
         display: flex;
         justify-content: center;
+
+        .btn {
+          // width: 47px;
+          padding-left: 22px;
+          height: 24px;
+          line-height: 24px;
+          color: #333;
+          text-align: left;
+        }
+
+        .ant-pagination-disabled {
+          .prev-page {
+            background-position: 0 -620px;
+            color: #cacaca;
+            cursor: default;
+          }
+
+          .next-page {
+            background-position: -75px -620px;
+            color: #cacaca;
+            cursor: default;
+          }
+        }
+        
+        .prev-page {
+          padding-left: 22px;
+          background-position: 0 -560px;
+        }
+        .next-page {
+          width: 67px;
+          padding-left: 12px;
+          background-position: -75px -560px;
+
+        }
+
         .ant-pagination-item {
-          // width: 24px;
           height: 24px;
           min-width: 24px;
           line-height: 24px;
@@ -50,9 +84,6 @@
             }
           }
         }
-        // .ant-pagination-options {
-        //   display: none;
-        // }
       }
     }
   }

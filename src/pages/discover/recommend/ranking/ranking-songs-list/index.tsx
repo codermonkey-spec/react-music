@@ -34,9 +34,16 @@ const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
                   <div className={classNames({ hot: index < 3 })}>
                     {index + 1}
                   </div>
-                  <div>{item?.name}</div>
+                  <div className="one-line">{item?.name}</div>
                 </div>
-                <div className="list-item-right"></div>
+                <div className="list-item-right">
+                  <div className="play sprite_02" title="播放"></div>
+                  <div
+                    className="add sprite_icon2"
+                    title="添加到播放列表"
+                  ></div>
+                  <div className="collect sprite_02" title="收藏"></div>
+                </div>
               </div>
             );
           })

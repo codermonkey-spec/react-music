@@ -1,3 +1,4 @@
+import type { TupleToUnion } from "@/types";
 import type { newAlbumItemType } from "@/service/api/album";
 
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
@@ -7,26 +8,14 @@ import styles from "./style.less";
 
 import TopTitle from "@/components/top-title";
 import AlbumItem from "@/components/album-item";
+import ListLineItem from "@/components/list-line-item";
 
 type allNewAlbumListProps = {
   total?: number;
   albums?: newAlbumItemType[];
 };
 
-type areaType = "全部" | "华语" | "欧美" | "韩国" | "日本";
-
-const itemContainerStyle = {
-  width: 153,
-  height: 140,
-  backgroundPosition: "0 -845px",
-};
-
-const imgStyle = {
-  width: 130,
-  height: 130,
-  backgroundPosition: "0 -146px",
-};
-
+type areaType = TupleToUnion<["全部", "华语", "欧美", "韩国", "日本"]>;
 const tabs = ["全部", "华语", "欧美", "韩国", "日本"];
 const defaultPageSize = 35;
 
@@ -43,14 +32,20 @@ const Album = memo(() => {
     () => (_, type, originalElement) => {
       if (type === "prev") {
         return (
-          <button onClick={() => setCurrentPage(currentPage - 1)}>
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            className="btn sprite_button2 prev-page"
+          >
             上一页
           </button>
         );
       }
       if (type === "next") {
         return (
-          <button onClick={() => setCurrentPage(currentPage + 1)}>
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            className="btn sprite_button2 next-page"
+          >
             下一页
           </button>
         );
@@ -93,38 +88,23 @@ const Album = memo(() => {
       <div className="wrap-v2 album-content">
         <TopTitle
           title={<h3 className="album-title">热门新碟</h3>}
-          isMore={false}
           icon={false}
         />
         <div className="album-list">
           {newAlbumList.slice(0, 10).map((item) => {
-            return (
-              <AlbumItem
-                key={item.name}
-                {...item}
-                itemContainerStyle={itemContainerStyle}
-                imgStyle={imgStyle}
-              />
-            );
+            return <AlbumItem key={item.name} size="large" {...item} />;
           })}
         </div>
         <TopTitle
           title={<h3 className="album-title">全部新碟</h3>}
-          tab={tabs}
-          onTabItemClick={onTabItemClick}
-          isMore={false}
+          renderTab={() => (
+            <ListLineItem data={tabs} onItemClick={onTabItemClick} />
+          )}
           icon={false}
         />
         <div className="album-list">
           {allNewAlbumList.albums?.map((item) => {
-            return (
-              <AlbumItem
-                key={item.name}
-                {...item}
-                itemContainerStyle={itemContainerStyle}
-                imgStyle={imgStyle}
-              />
-            );
+            return <AlbumItem key={item.name} size="large" {...item} />;
           })}
         </div>
 
@@ -135,7 +115,6 @@ const Album = memo(() => {
             onChange={(page) => setCurrentPage(page)}
             hideOnSinglePage
             showSizeChanger={false}
-            pageSizeOptions={[]}
             itemRender={itemRender}
           />
         </div>

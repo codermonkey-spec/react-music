@@ -66,6 +66,14 @@
       align-items: center;
       color: #666;
       cursor: pointer;
+
+      &:hover  {
+        .list-item-right {
+          // visibility: visible;
+          display: flex;
+        }
+      }
+
       .list-item-left {
         display: flex;
         align-items: center;
@@ -85,11 +93,36 @@
 
         > div:nth-child(2) {
           color: #000;
+          max-width: 176px;
+          width: 97px;
         }
       }
       
       .list-item-right {
+        display: flex;
+        flex: 1;
+        width: 82px;
+        margin-top: 7px;
+        // visibility:hidden;
+        display: none;
 
+        > div {
+          width: 17px;
+          height: 17px;
+          margin-right: 10px
+        }
+
+        .play {
+          background-position: -267px -268px;
+        }
+        .add {
+          background-position: 0 -700px;
+          margin: 2px 6px 0 0;
+        }
+
+        .collect {
+          background-position: -297px -268px;
+        }
       }
 
     }

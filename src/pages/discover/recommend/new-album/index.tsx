@@ -31,7 +31,13 @@ const NewAlbum: React.FC<newAlbumProps> = memo(({ data }) => {
             return (
               <div className="group">
                 {data.slice(item * 5, item * 5 + 5).map((child) => {
-                  return <AlbumItem {...child} key={child.name} />;
+                  return (
+                    <AlbumItem
+                      {...child}
+                      key={child.name + child.picUrl}
+                      size="normal"
+                    />
+                  );
                 })}
               </div>
             );

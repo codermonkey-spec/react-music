@@ -10,4 +10,4 @@ export type DeepPartial<T> = {
 
 export type First<T extends any[]> = T extends [] ? never : T[0];
 
-export type TupleToUnion<T extends unknown[]> = T[number];
+export type TupleToUnion<T extends any[]> = T[number];
