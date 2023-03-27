@@ -50,29 +50,33 @@ const Swiper: React.FC<swiperPropsType> = ({ data }) => {
       }}
     >
       <div className="wrap-v2 swiper-wrap">
-        <Carousel
-          beforeChange={handleChange}
-          ref={bannerRef}
-          dots={{ className: "dots" }}
-          effect="fade"
-          autoplay
-        >
-          {data.map((item) => {
-            return (
-              <div className="swiper-item" key={item.imageUrl}>
-                <img src={item.imageUrl} alt="" />
-              </div>
-            );
-          })}
-        </Carousel>
-        <div
-          className="btn prev"
-          onClick={() => handleBannerChange("prev")}
-        ></div>
-        <div
-          className="btn next"
-          onClick={() => handleBannerChange("next")}
-        ></div>
+        {data.length > 0 && (
+          <>
+            <Carousel
+              beforeChange={handleChange}
+              ref={bannerRef}
+              dots={{ className: "dots" }}
+              effect="fade"
+              autoplay
+            >
+              {data.map((item, index) => {
+                return (
+                  <div className="swiper-item" key={item.imageUrl}>
+                    <img src={item.imageUrl} alt="" />
+                  </div>
+                );
+              })}
+            </Carousel>
+            <div
+              className="btn prev"
+              onClick={() => handleBannerChange("prev")}
+            ></div>
+            <div
+              className="btn next"
+              onClick={() => handleBannerChange("next")}
+            ></div>
+          </>
+        )}
         <div className="sprite_download download"></div>
       </div>
     </animated.div>

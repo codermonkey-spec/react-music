@@ -1,7 +1,8 @@
 import type { rankingInfoType } from "@/service/api/recommend";
 import classNames from "classnames";
 import React, { memo } from "react";
-
+import { useAppDispatch } from "@/store";
+import { fetchCurrSongAction } from "@/store/module/player";
 import styles from "./style.less";
 
 type RankingSongsListProps = {
@@ -9,6 +10,14 @@ type RankingSongsListProps = {
 };
 
 const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
+  const dispatch = useAppDispatch();
+
+  const handlePlay = (id: number | undefined) => {
+    if (!id) return;
+    console.log("点击了播放", id);
+    dispatch(fetchCurrSongAction(id));
+  };
+
   return (
     <div className={styles["ranking-item"]}>
       <div className="ranking-item-top">
@@ -37,7 +46,11 @@ const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
                   <div className="one-line">{item?.name}</div>
                 </div>
                 <div className="list-item-right">
-                  <div className="play sprite_02" title="播放"></div>
+                  <div
+                    className="play sprite_02"
+                    title="播放"
+                    onClick={() => handlePlay(item?.id)}
+                  ></div>
                   <div
                     className="add sprite_icon2"
                     title="添加到播放列表"

@@ -16,6 +16,7 @@ const ListLineItem: React.FC<ListLineItemProps> = memo(
             <div
               className={styles["tab-item"]}
               onClick={() => (onItemClick ? onItemClick(item) : null)}
+              key={index}
             >
               <span> {item}</span>
               {index !== data.length - 1 && <span className="line">|</span>}

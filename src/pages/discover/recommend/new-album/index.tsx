@@ -17,11 +17,13 @@ type newAlbumProps = {
 
 const NewAlbum: React.FC<newAlbumProps> = memo(({ data }) => {
   const ref = useRef<CarouselRef | null>(null);
+
   const handleBannerChange = (direction: bannerDirectionType) => {
     if (ref.current) {
       ref.current[direction]();
     }
   };
+
   return (
     <div className={styles["new-album"]}>
       <TopTitle title="新碟上架" />
@@ -29,7 +31,7 @@ const NewAlbum: React.FC<newAlbumProps> = memo(({ data }) => {
         <Carousel ref={ref}>
           {[0, 1].map((item) => {
             return (
-              <div className="group">
+              <div className="group" key={item}>
                 {data.slice(item * 5, item * 5 + 5).map((child) => {
                   return (
                     <AlbumItem

@@ -1,8 +1,19 @@
 .play-list {
   :global {
     .play-list-content {
+      box-sizing: border-box;
       padding: 40px;
       background-color: #fff;
+
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 30px;
+
+        > div:nth-child(5n + 1) {
+          margin-left: 0;
+        }
+      }
     }
   }
 }

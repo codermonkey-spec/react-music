@@ -21,7 +21,7 @@ export type catInfoType = {
     resourceCount: number;
     resourceType: number;
     type: number;
-  };
+  }[];
 };
 
 /** 获取歌单分类 */
@@ -29,13 +29,28 @@ export const getCatList: requestApi<catInfoType> = () => {
   return request("/playlist/catlist");
 };
 
+export type playListType = {
+  cat: string;
+  playlists: {
+    id: number;
+    name: string;
+    description: string;
+    coverImgUrl: string;
+  }[];
+};
+
 /** 歌单 */
-export const getPlayList = (limit: number = 10, order: string = "new") => {
+export const getPlayList: requestApi<playListType> = (
+  limit: number = 35,
+  order: string = "hot",
+  cat: string = "全部"
+) => {
   return request("/top/playlist", {
     method: "get",
     params: {
       limit,
       order,
+      cat,
     },
   });
 };

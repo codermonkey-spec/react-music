@@ -22,11 +22,15 @@ const HotRecommend: React.FC<hotRecommendListType> = memo(({ data }) => {
 
   return (
     <div className={styles["hot-recommend"]}>
-      <TopTitle
-        title="热门推荐"
-        renderTab={() => <ListLineItem data={tabs} onItemClick={onItemClick} />}
-        renderMore={() => <More renderMoreIcon={<MoreArrow />} />}
-      />
+      {data.length > 0 && (
+        <TopTitle
+          title="热门推荐"
+          renderTab={() => (
+            <ListLineItem data={tabs} onItemClick={onItemClick} />
+          )}
+          renderMore={() => <More renderMoreIcon={<MoreArrow />} />}
+        />
+      )}
       <div className="recommend-list">
         {data.map((item) => {
           return <RecommendItem {...item} key={item.id} />;

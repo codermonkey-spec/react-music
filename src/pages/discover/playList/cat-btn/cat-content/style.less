@@ -1,0 +1,56 @@
+.cat-info {
+  display: flex;
+  width: 700px;
+  :global {
+    .cat-info-left {
+      width: 50px;
+      border-right: 1px solid #ddd;
+
+      .cat-list-item {
+       
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        .icon {
+          display: inline-block;
+          width: 23px;
+          height: 23px;
+        }
+
+        &:first-child,&:nth-child(2),&:nth-child(4),&:nth-child(5) {
+          margin-top: 9px;
+        }
+        &:nth-child(3){
+          margin-top: 28px;
+        }
+      }
+    }
+
+    .cat-info-right {
+      flex: 1;
+
+      .cat-list {
+        margin-left: 5px;
+        padding: 8px 15px 0 15px;
+        .cat-item {
+          font-size: 12px;
+          cursor: pointer;
+
+          .text {
+            padding: 2px 6px;
+
+            &.active {
+              background: #a7a7a7;
+              color: #fff;
+            }
+          }
+
+          .line {
+            margin: 0 4px;
+            color: #d8d8d8;
+          }
+        }
+      }
+    }
+  }
+}

@@ -47,6 +47,8 @@ export enum ranking_id {
 export type rankingItemType = {
   /** 歌曲名称 */
   name: string;
+  /** 歌曲id */
+  id: number;
   [key: string]: any;
 };
 
