@@ -12,7 +12,7 @@ type RankingSongsListProps = {
 const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
   const dispatch = useAppDispatch();
 
-  const handlePlay = (id: number | undefined) => {
+  const handlePlay = (id?: number) => {
     if (!id) return;
     console.log("点击了播放", id);
     dispatch(fetchCurrSongAction(id));
@@ -60,7 +60,11 @@ const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
               </div>
             );
           })
-          .concat(<div className="more">查看更多&gt;</div>)}
+          .concat(
+            <div className="more" key="more">
+              查看更多&gt;
+            </div>
+          )}
       </div>
     </div>
   );

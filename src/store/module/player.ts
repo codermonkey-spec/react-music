@@ -1,6 +1,9 @@
+import type { lyricType } from "@/utils/handle-player";
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getCurrSongs } from "@/service/api/player";
+import { getCurrSongs, getLyric } from "@/service/api/player";
 import { RootState } from "..";
+import { parseLyrics } from "@/utils/handle-player";
 
 export type playerType = {
   /** 当前播放的歌曲 */
@@ -22,6 +25,7 @@ export type playerType = {
     /** 歌曲总时长 */
     dt?: number;
   };
+  currentLyrics: lyricType[];
 };
 
 export const fetchCurrSongAction = createAsyncThunk<
@@ -29,24 +33,46 @@ export const fetchCurrSongAction = createAsyncThunk<
   number,
   { state: RootState }
 >("currentSong", (id, { dispatch, getState }) => {
+  /** 获取歌曲信息 */
   getCurrSongs(id).then((res) => {
-    dispatch(changeCurrentSongAction(res.songs[0]));
+    dispatch(
+      updateInitialState({
+        label: "currentSong",
+        value: res.songs[0],
+      })
+    );
+  });
+
+  /** 获取歌词信息 */
+  getLyric(id).then((res) => {
+    const lyricsArr = parseLyrics(res.lrc.lyric);
+    dispatch(
+      updateInitialState({
+        label: "currentLyrics",
+        value: lyricsArr,
+      })
+    );
   });
 });
 
 const initialState: playerType = {
   currentSong: {},
+  currentLyrics: [],
 };
 
 const playerSlice = createSlice({
   name: "player",
   initialState,
   reducers: {
-    changeCurrentSongAction(state, { payload }) {
-      state.currentSong = payload;
+    updateInitialState(
+      state,
+      { payload }: { payload: { label: keyof playerType; value: any } }
+    ) {
+      const { label, value } = payload;
+      state[`${label}`] = value;
     },
   },
 });
 
-export const { changeCurrentSongAction } = playerSlice.actions;
+export const { updateInitialState } = playerSlice.actions;
 export default playerSlice.reducer;

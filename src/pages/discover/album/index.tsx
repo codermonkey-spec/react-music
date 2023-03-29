@@ -29,15 +29,15 @@ const Album = memo(() => {
   const [currentPage, setCurrentPage] = useState(1);
   const [area, setArea] = useState("KR");
 
-  const transitions = useTransition(allNewAlbumList.albums, {
-    trail: 200,
-    from: {
-      opacity: 0,
-    },
-    enter: {
-      opacity: 1,
-    },
-  });
+  // const transitions = useTransition(allNewAlbumList.albums, {
+  //   trail: 200,
+  //   from: {
+  //     opacity: 0,
+  //   },
+  //   enter: {
+  //     opacity: 1,
+  //   },
+  // });
 
   const itemRender: PaginationProps["itemRender"] = useMemo(
     () => (_, type, originalElement) => {
@@ -114,11 +114,14 @@ const Album = memo(() => {
           icon={false}
         />
         <div className="album-list">
-          {transitions((style, item) => (
+          {/* {transitions((style, item) => (
             <animated.div style={style} key={item?.name}>
               {item?.picUrl && <AlbumItem size="large" {...item} />}
             </animated.div>
-          ))}
+          ))} */}
+          {allNewAlbumList.albums?.map((item) => {
+            return item?.picUrl && <AlbumItem size="large" {...item} />;
+          })}
         </div>
 
         <div className="footer-pagination">

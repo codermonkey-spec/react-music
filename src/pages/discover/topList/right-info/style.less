@@ -1,23 +1,151 @@
 .right-info {
-  display: flex;
-  align-items: center;
-  padding: 40px;
+
+
 
   :global {
-    .info-img {
-      width: 150px;
-      height: 150px;
-      padding: 3px;
-      border: 1px solid #ccc;
+    .info-top {
+      display: flex;
+      padding: 40px 40px 0px 40px;
 
-      img {
-        width: 100%;
-        height: 100%;
+      .info-img {
+        width: 150px;
+        height: 150px;
+        padding: 3px;
+        border: 1px solid #ccc;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
+
+      .ranking-info {
+        margin-left: 29px;
+
+        .ranking-name {
+          margin: 16px 0 4px;
+          line-height: 24px;
+          font-size: 20px;
+          font-weight: normal;
+          color: #333;
+        }
+
+        .ranking-time {
+          margin: 0 0 20px;
+          line-height: 35px;
+          color: #666;
+
+          .timeIcon {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background-position: -18px -682px;
+            vertical-align: middle;
+            margin-right: 5px;
+          }
+
+          .update-text {
+            color: #999;
+          }
+        }
+
+        .ranking-opt {
+          >span {
+            display: inline-block;
+          }
+
+          .play {
+            height: 31px;
+            width: 75px;
+            line-height: 31px;
+            overflow: hidden;
+            vertical-align: top;
+            text-align: center;
+            padding-left: 26px;
+            box-sizing: border-box;
+            color: #fff;
+            background-position: 0 -805px;
+            cursor: pointer;
+          }
+        }
+      }
+
     }
 
-    .ranking-info {
-      margin-left: 20px;
+    .info-content {
+      padding: 40px;
+
+      .songs-num {
+        color: #666;
+      }
+
+      .playCount {
+        color: #c20c0c;
+        font-weight: bold;
+      }
+
+      .track-songs {
+        table {
+          width: 100%;
+          border: 1px solid #d9d9d9;
+          border-collapse: collapse;
+          border-spacing: 0;
+          table-layout: fixed;
+          color: #666;
+
+          th {
+            height: 38px;
+            background-color: #f7f7f7;
+            background-position: 0 0;
+            background-repeat: repeat-x;
+            border-right: 1px solid #eee;
+            text-align: left;
+            padding: 8px 10px;
+            box-sizing: border-box;
+          }
+
+          .first {
+            width: 77px;
+          }
+
+
+          .row {
+            color: #333;
+            > td {
+              padding: 6px 10px;
+              &:first-child {
+                width: 25px;
+                margin-left: 0;
+                text-align: center;
+              }
+
+              &:nth-child(2) {
+                display: flex;
+                align-items: center;
+                .table-play {
+                  cursor: pointer;
+                  display: inline-block;
+                  width: 17px;
+                  height: 17px;
+                  cursor: pointer;
+                  background-position: 0 -103px;
+                  margin-right: 5px;
+                }
+
+                .table-name {
+                  flex: 1;
+                }
+              } 
+            }
+          
+
+            &:nth-child(even) {
+              background-color: #f7f7f7;
+            }
+        
+          }
+        }
+      }
     }
   }
 }

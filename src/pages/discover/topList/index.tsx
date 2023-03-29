@@ -14,7 +14,7 @@ const TopList = memo(() => {
 
   const infoItem = useMemo(() => {
     return topList.find((item) => item.id === currId);
-  }, [currId, topList.length]);
+  }, [currId, topList]);
 
   useEffect(() => {
     getTopList().then((res) => {
@@ -32,7 +32,7 @@ const TopList = memo(() => {
         <div className="list-left">
           <div className="title">云音乐特色榜</div>
           <div>
-            {topList.slice(0, 5).map((item, index) => {
+            {topList.slice(0, 5).map((item) => {
               return (
                 <TopListItem
                   key={item.id}
@@ -45,7 +45,7 @@ const TopList = memo(() => {
           </div>
           <div className="title">全球媒体榜</div>
           <div>
-            {topList.slice(5).map((item, index) => {
+            {topList.slice(5).map((item) => {
               return (
                 <TopListItem
                   key={item.id}

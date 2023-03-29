@@ -1,5 +1,6 @@
 import type { playListType } from "@/service/api/play-list";
 import React, { memo, useEffect, useState } from "react";
+import { useTransition, animated } from "@react-spring/web";
 import { getPlayList } from "@/service/api/play-list";
 import styles from "./style.less";
 
@@ -11,6 +12,15 @@ const PlayList = memo(() => {
   const [cat, setCat] = useState("全部");
 
   const [dataSource, setDataSource] = useState<playListType["playlists"]>([]);
+  const transitions = useTransition(dataSource, {
+    trail: 200,
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+  });
 
   useEffect(() => {
     getPlayList(35, "hot", cat).then((res) => {
@@ -32,9 +42,11 @@ const PlayList = memo(() => {
           renderMore={<div>热门</div>}
         />
         <div className="content">
-          {dataSource.map((item) => {
-            return <RecommendItem {...item} key={item.id} />;
-          })}
+          {transitions((style, item) => (
+            <animated.div style={style} key={item.id} className="wrap">
+              <RecommendItem {...item} key={item.id} />
+            </animated.div>
+          ))}
         </div>
       </div>
     </div>

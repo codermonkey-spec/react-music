@@ -1,0 +1,60 @@
+.artist {
+  :global {
+    .artist-content {
+      display: flex;
+      box-sizing: border-box;
+      border-left: 1px solid #d3d3d3;
+      border-right: 1px solid #d3d3d3;
+
+      .artist-left {
+        width: 180px;
+        padding-top: 40px;
+        border-right: 1px solid #d3d3d3;
+        box-sizing: border-box;
+        .wrap {
+          padding: 0 10px 40px;
+         
+          .artist-item {
+            margin-top: 16px;
+            cursor: pointer;
+            
+            &:not(:last-child) {
+              border-bottom: 1px solid #d3d3d3;
+            }
+            .title {
+              font-size: 16px;
+              font-weight: 600;
+              color: #333;;
+              padding-left: 23px;
+              margin-bottom: 5px;
+            }
+
+            .artist-name {
+              height: 29px;
+              line-height: 29px;
+              margin-bottom: 2px;
+              display: flex;
+              align-items: center;
+              padding-left: 23px;
+
+
+              .dot {
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                background-color: #c20c0c;;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+
+      }
+
+      .artist-right {
+        flex: 1;
+        background-color: #fff;
+      }
+    }
+  }
+}
