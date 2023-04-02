@@ -1,0 +1,50 @@
+.right-singers {
+  padding: 40px;
+
+  :global {
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      .singer-item {
+        margin-left: 17px;
+        margin-bottom: 30px;
+        img {
+          width: 130px;
+          height: 130px;
+          margin-bottom: 8px;
+        }
+
+        &:nth-child(5n + 1) {
+          margin-left: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .rank {
+      display: flex;
+      flex-wrap: wrap;
+
+      .rank-item {
+        display: flex;
+        align-items: center;
+        width: 130px;
+        box-sizing: border-box;
+        padding: 0 0 10px 50px;
+        &:nth-child(5n + 1) {
+          padding: 0 0 10px 0;
+        }
+
+        .singer-icon {
+          display: inline-block;
+          margin: 4px 0 0 2px;
+          width: 17px;
+          height: 18px;
+          background-position: 0 -740px;
+        }
+      }
+      
+    }
+  }
+}

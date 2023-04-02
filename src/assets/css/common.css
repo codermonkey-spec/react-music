@@ -63,6 +63,18 @@ body, textarea, select, input, button {
   background: url(../img/download.png) no-repeat 0 9999px;
 }
 
+.playlist_bg {
+  background: url(../img/playlist_bg.png) no-repeat 0 9999px;
+}
+
+.sprite_playbar {
+  background: url(../img/playbar.png) no-repeat 0 9999px;
+}
+
+.ant-message {
+  top:calc(100vh - 60px)!important;
+  
+}
 .ant-message .ant-message-notice-content {
   position: fixed;
   left: 50%;

@@ -135,6 +135,7 @@
       .btn {
         width: 25px;
         height: 25px;
+        cursor: pointer;
       }
 
       .left {
@@ -161,19 +162,10 @@
         padding-left: 13px;
         background-position: -147px -248px;
 
+        
         .volume {
           background-position: -2px -248px;
         }
-
-        //       .loop {
-        //         background-position: ${(props) => {
-        //  switch (props.playMode) {
-        //           case 1:
-        //             return '-66px -248px'
-        //             case 2: return '-66px -344px'
-        //             default: return '-3px -344px'
-        //         }
-        //       }
       }
     }
 
@@ -183,7 +175,39 @@
       color: #ccc;
       width: 59px;
       background-position: -42px -68px;
+      text-indent: 17px;
     }
 
+    .lyric-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 46px;
+      width: 986px;
+      height: 301px;
+      margin-left: -493px;
+      z-index: -999;
+    }
+  }
+}
+
+.volume-bar {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 32px;
+  height: 113px;
+  background-position: 0 -503px;
+  :global {
+    .ant-slider-handle {
+      // position: absolute;
+      // top: 0;
+      // left: -7px;
+      // display: block;
+      // width: 18px;
+      // height: 20px;
+      // background: url("@/assets/img/playbar.png") no-repeat 0 9999px;
+      // background-position: -40px -250px;
+      // cursor: pointer;
+    }
   }
 }

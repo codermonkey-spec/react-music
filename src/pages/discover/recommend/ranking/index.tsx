@@ -1,7 +1,6 @@
 import type { rankingInfoType } from "@/service/api/recommend";
 
 import React, { memo } from "react";
-
 import styles from "./style.less";
 import TopTitle from "@/components/top-title";
 import RankingSongsList from "./ranking-songs-list";
