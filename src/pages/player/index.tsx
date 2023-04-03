@@ -23,17 +23,7 @@ const Player = memo(() => {
     currentLyrics,
     playMode,
     playSongsList,
-  } = useAppSelector(
-    (state) => ({
-      currentSong: state.player.currentSong,
-      currentLyricsIndex: state.player.currentLyricsIndex,
-      currentLyrics: state.player.currentLyrics,
-      playSongIndex: state.player.playSongIndex,
-      playMode: state.player.playMode,
-      playSongsList: state.player.playSongsList,
-    }),
-    shallowEqual
-  );
+  } = useAppSelector((state) => state.player, shallowEqual);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -44,7 +34,8 @@ const Player = memo(() => {
 
   const [springs, api] = useSpring(() => ({
     from: {
-      transform: "translateY(115%)",
+      height: "0px",
+      opacity: 0,
     },
   }));
 
@@ -140,12 +131,18 @@ const Player = memo(() => {
     );
   };
 
-  const handleLyricBar = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleLyricBar = () => {
     api.start({
-      transform: lyricsBarVis ? "translateY(115%)" : "translateY(0%)",
+      height: lyricsBarVis ? "0px" : "301px",
+      opacity: lyricsBarVis ? 0 : 1,
     });
     setLyricsBarVis(!lyricsBarVis);
+  };
+
+  const handleVolumeChange = (value: number) => {
+    if (audioRef.current) {
+      audioRef.current.volume = value / 100;
+    }
   };
 
   return (
@@ -205,8 +202,9 @@ const Player = memo(() => {
               trigger="click"
               title={
                 <Slider
+                  value={(audioRef.current?.volume || 0) * 100}
+                  onChange={handleVolumeChange}
                   vertical
-                  style={{ height: 200 }}
                   className={classNames("sprite_playbar", styles["volume-bar"])}
                 />
               }

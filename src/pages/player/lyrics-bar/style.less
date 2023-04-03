@@ -4,8 +4,8 @@
   :global {
     .lyrics-bar-header {
       background-position: 0 0;
-    height: 41px;
-    padding: 0 5px
+      height: 41px;
+      padding: 0 5px
     }
 
     .lyrics-bar-content {
@@ -19,6 +19,44 @@
       background-repeat: repeat-y;
       padding: 0 5px;
       color: #ccc;
+      display: flex;
+
+      .content-left {
+        height: 260px;
+        width: 553px;
+        overflow: hidden;
+        padding: 10px 0;
+
+        .song-item {
+          display: flex;
+          align-items: center;
+          color: #666;
+  
+          .arrow {
+            width: 20px;
+            height: 28px;
+          }
+
+          .song-name {
+            width: 256px;
+            color: #ccc;
+          }
+
+          .singer-name {
+            width: 70px;
+            padding-right: 10px;
+            height: 28px;
+            line-height: 28px;
+            
+          }
+        }
+      }
+
+      .content-right {
+        flex: 1;
+        background: #121212;
+      }
+     
     }
   }
 }

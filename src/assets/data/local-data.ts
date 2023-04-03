@@ -8,7 +8,7 @@ export const headerLinks = [
     link: "/mine",
   },
   {
-    title: "朋友",
+    title: "关注",
     link: "/friend",
   },
   {

@@ -183,31 +183,41 @@
       left: 50%;
       bottom: 46px;
       width: 986px;
-      height: 301px;
+      // height: 301px;
       margin-left: -493px;
       z-index: -999;
+      cursor: grab;
     }
   }
 }
 
 .volume-bar {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 32px;
-  height: 113px;
-  background-position: 0 -503px;
+  height: 100px;
   :global {
     .ant-slider-handle {
-      // position: absolute;
-      // top: 0;
-      // left: -7px;
-      // display: block;
-      // width: 18px;
-      // height: 20px;
-      // background: url("@/assets/img/playbar.png") no-repeat 0 9999px;
-      // background-position: -40px -250px;
-      // cursor: pointer;
+      width: 18px;
+      height: 18px;
+      margin-left: -3px;
+      background: url('@/assets/img/vol_btn.png');
+
+      cursor: pointer;
+
+      &::after {
+
+        opacity: 0;
+      }
+    }
+
+    .ant-slider-track {
+      position: absolute;
+      background: url("@/assets/img/playbar.png");
+      // height: 46.5px;
+      top: auto;
+      bottom: 4px!important;
+      left: 4px;
+      background-position: -40px bottom;
+      overflow: hidden;
+
     }
   }
 }
