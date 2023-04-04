@@ -71,17 +71,15 @@ const Player = memo(() => {
 
   const handleTimeUpdate = () => {
     // 秒
-    const currentTime = audioRef.current?.currentTime || 0;
+    const currentTime = (audioRef.current?.currentTime || 0) * 1000;
     if (audioRef.current) {
-      setCurrTime(currentTime * 1000);
-      setSliderValue(((currentTime * 1000) / duration) * 100);
+      setCurrTime(currentTime);
+      setSliderValue((currentTime / duration) * 100);
     }
 
     // 更新歌词
 
-    let index = currentLyrics.findIndex(
-      (item) => item.time > currentTime * 1000
-    );
+    let index = currentLyrics.findIndex((item) => item.time > currentTime);
     if (index < 0) {
       index = currentLyrics.length - 1;
     }
@@ -235,7 +233,7 @@ const Player = memo(() => {
         onEnded={handlePlayEnded}
       />
       <animated.div style={{ ...springs }} className="lyric-wrap">
-        <LyricsBar />
+        <LyricsBar api={api} setLyricsBarVis={setLyricsBarVis} />
       </animated.div>
     </div>
   );

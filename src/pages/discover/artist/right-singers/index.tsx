@@ -4,7 +4,7 @@ import { getHotSingers, getSingerRank } from "@/service/api/artist";
 import styles from "./style.less";
 
 import TopTitle from "@/components/top-title";
-import AlbumItem from "@/components/album-item";
+import RecommendItem from "@/components/recommend-item";
 
 const RightSingers = memo(() => {
   const [hotSingers, setHotSingers] = useState<hotSingersType["artists"]>([]);
@@ -31,14 +31,7 @@ const RightSingers = memo(() => {
       />
       <div className="content">
         {hotSingers.map((item) => {
-          return (
-            <div key={item.id} className="singer-item">
-              <div>
-                <img src={item.picUrl} alt="" />
-              </div>
-              <div>{item.name}</div>
-            </div>
-          );
+          return <RecommendItem {...item} key={item.id} />;
         })}
       </div>
 

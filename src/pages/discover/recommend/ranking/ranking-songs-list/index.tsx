@@ -38,7 +38,7 @@ const RankingSongsList: React.FC<RankingSongsListProps> = memo(({ data }) => {
           ?.slice(0, 10)
           .map((item, index) => {
             return (
-              <div key={item?.name} className="list-item">
+              <div key={item?.id} className="list-item">
                 <div className="list-item-left">
                   <div className={classNames({ hot: index < 3 })}>
                     {index + 1}

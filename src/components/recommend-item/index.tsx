@@ -12,11 +12,13 @@ const RecommendItem: React.FC<Partial<hotRecommendItem>> = memo(
         <div className="img">
           <img src={picUrl} alt="" />
           <div className="sprite_cover cover"></div>
-          <div className="sprite_cover play-count">
-            <span className="sprite_icon earphone"></span>
-            <span className="num">{formatPlayCount(playCount || 0)}</span>
-            <span className="sprite_icon play"></span>
-          </div>
+          {playCount && (
+            <div className="sprite_cover play-count">
+              <span className="sprite_icon earphone"></span>
+              <span className="num">{formatPlayCount(playCount || 0)}</span>
+              <span className="sprite_icon play"></span>
+            </div>
+          )}
         </div>
         <div className="text">{name}</div>
       </div>
