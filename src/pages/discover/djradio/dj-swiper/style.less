@@ -1,0 +1,48 @@
+.dj-swiper {
+  position: relative;
+  :global {
+    .group {
+      display: flex!important;
+      flex-wrap: wrap;
+      .cat-item {
+        text-align: center;
+        margin: 0 0 25px 33px;
+        cursor: pointer;
+        .img {
+          width: 48px;
+          height: 48px;
+        }
+
+        .text {
+          font-size: 12px;
+          color: #888;
+        }
+      }
+    }
+
+    .opt {
+      .btn {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        width: 20px;
+        height: 30px;
+        margin-top: -15px;
+        opacity: 0.25;
+        text-indent: -9999px;
+        background: url(@/assets/img/radio_slide.png) no-repeat 0 9999px;
+        cursor: pointer;
+
+        &.prev {
+          left: -26px;
+          background-position: 0 -30px;
+        }
+
+        &.next {
+          right: -26px;
+          background-position: -30px -30px;
+        }
+      }
+    }
+  }
+}

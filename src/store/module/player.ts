@@ -45,7 +45,7 @@ const handleCurrSongs = (
 ) => {
   const { player: { playSongsList = [] } = {} } = getState();
   const index = playSongsList.findIndex((item) => item?.id === id);
-  if (index > 0) {
+  if (index > -1) {
     dispatch(
       updateInitialState({ label: "currentSong", value: playSongsList[index] })
     );
