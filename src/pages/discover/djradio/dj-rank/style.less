@@ -1,0 +1,118 @@
+.dj-rank {
+  display: flex;
+  margin-top: 20px;
+
+  > div {
+    width: 426px;
+
+  }
+
+  :global {
+    .dj-recommend {
+      margin-right: 40px;
+      
+      
+      .recommend-item {
+        display: flex;
+        padding: 10px 0;
+        padding-left: 20px;
+        justify-content:space-between;
+        align-items: center;
+        cursor: pointer;
+
+        &:nth-child(odd) {
+          background: #f7f7f7;
+        }
+
+        &:hover {
+          background-color: rgb(247, 243, 243);
+        }
+  
+        .recommend-item-left {
+          display: flex;
+          // width: 254px;
+          text-overflow: ellipsis;
+          // white-space: nowrap;
+
+          .coverUrl {
+            width: 40px;
+            height: 40px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+  
+          .text {
+            margin-left: 10px;
+            flex: 1;
+            font-size: 12px;
+            .name {
+              width: 254px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: #333;
+            }
+
+            .radio-name {
+              margin-top: 5px;
+              color: #999;
+            }
+          }
+        }
+
+        .type {
+          width: 62px;
+          height: 18px;
+          border: 1px solid #999;
+          text-align: center;
+          line-height: 18px;
+          margin-right: 10px;
+          color: #999;
+        }
+        
+      }
+    }
+
+    .dj-toplist {
+
+      .toplist-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        padding-left: 20px;
+
+        &:nth-child(odd) {
+          background: #f7f7f7;
+        }
+
+        &:hover {
+          background-color: rgb(247, 243, 243);
+        }
+
+        .item-left {
+          display: flex;
+          
+
+          .coverUrl {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .program-radio-name {
+            margin-top: 5px;
+            color: #999;
+          }
+        }
+        
+      }
+    }
+  }
+}

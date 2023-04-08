@@ -18,15 +18,7 @@ const LyricsBar: React.FC<{
 }> = memo(({ api, setLyricsBarVis }) => {
   const dispatch = useAppDispatch();
   const { playSongsList, playSongIndex, currentLyrics, currentLyricsIndex } =
-    useAppSelector(
-      (state) => ({
-        playSongsList: state.player.playSongsList,
-        playSongIndex: state.player.playSongIndex,
-        currentLyrics: state.player.currentLyrics,
-        currentLyricsIndex: state.player.currentLyricsIndex,
-      }),
-      shallowEqual
-    );
+    useAppSelector((state) => state.player, shallowEqual);
 
   const ref = useRef<HTMLDivElement | null>(null);
   const currScrollTop = useRef<number>(0);
@@ -144,7 +136,7 @@ const LyricsBar: React.FC<{
       <div className="playlist_bg lyrics-bar-content">
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable">
-            {(droppableProvided, droppableSnapshot) => (
+            {(droppableProvided) => (
               <div className="content-left" ref={droppableProvided.innerRef}>
                 {playSongsList.length > 0 ? (
                   playSongsList.map((item, index) => {
@@ -154,7 +146,7 @@ const LyricsBar: React.FC<{
                         draggableId={String(item?.id) || ""}
                         index={index}
                       >
-                        {(draggableProvided, draggableSnapshot) => (
+                        {(draggableProvided) => (
                           <div
                             className="song-item"
                             onClick={() => handlePlayItem(item?.id)}

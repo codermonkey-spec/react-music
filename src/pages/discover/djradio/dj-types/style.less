@@ -1,0 +1,51 @@
+.dj-types {
+
+  > div {
+    margin-top: 35px;
+  }
+  :global {
+    .type-content {
+      display: flex;
+      flex-wrap: wrap;
+      
+      .type-item {
+        display: flex;
+        padding: 20px 0;
+        
+        width: 50%;
+        box-sizing: border-box;
+        // flex: 1;
+
+        &:nth-child(1),&:nth-child(2) {
+          border-bottom: 1px solid #e7e7e7;
+        }
+        
+        &:nth-child(even) {
+          margin-left: 30px;
+          width: calc(50% - 30px);
+        }
+        img {
+          width: 120px;
+          height: 120px;
+        }
+
+        .right {
+          margin-left: 20px;
+
+          .name {
+            margin: 16px 0 20px;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+          }
+
+          .rcmdtext {
+            font-size: 12px;
+            color: #999;
+          }
+        }
+        
+      }
+    }
+  }
+}
