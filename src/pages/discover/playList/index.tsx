@@ -1,6 +1,8 @@
 import type { playListType } from "@/service/api/play-list";
 import React, { memo, useEffect, useState } from "react";
 import { useTransition, animated } from "@react-spring/web";
+import { useLocation } from "react-router-dom";
+import { parse } from "qs";
 import { getPlayList } from "@/service/api/play-list";
 import styles from "./style.less";
 
@@ -9,7 +11,10 @@ import CatBtn from "./cat-btn";
 import RecommendItem from "@/components/recommend-item";
 
 const PlayList = memo(() => {
-  const [cat, setCat] = useState("全部");
+  const { search } = useLocation();
+  const [cat, setCat] = useState(
+    (parse(search.slice(1))?.cat as string) || "全部"
+  );
 
   const [dataSource, setDataSource] = useState<playListType["playlists"]>([]);
   const transitions = useTransition(dataSource, {

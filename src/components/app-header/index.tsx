@@ -1,12 +1,24 @@
-import { memo } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { debounce } from "lodash";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { headerLinks } from "@/assets/data/local-data";
+import { getSearchSuggest } from "@/service/api/recommend";
 
 import styles from "./style.less";
 
 const AppHeader = memo(() => {
+  const [] = useState([]);
+  const handleSuggest = useCallback(
+    debounce((value: string) => {
+      getSearchSuggest(value).then((res) => {
+        console.log("res", res);
+      });
+    }, 1000),
+    []
+  );
+
   const renderHeader = () => {
     return headerLinks.map((item) => {
       if (item.link.startsWith("/")) {
@@ -40,6 +52,7 @@ const AppHeader = memo(() => {
             placeholder="音乐/视频/电台/用户"
             className="search"
             addonAfter={null}
+            onChange={(e) => handleSuggest(e.target.value)}
           />
           <div className="center">创作者中心</div>
           <div className="login">登录</div>

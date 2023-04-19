@@ -1,5 +1,5 @@
 import { hotRecommendItem } from "@/service/api/recommend";
-
+import { useNavigate } from "react-router-dom";
 import React, { memo, useCallback } from "react";
 import styles from "./style.less";
 
@@ -16,8 +16,14 @@ type hotRecommendListType = {
 };
 
 const HotRecommend: React.FC<hotRecommendListType> = memo(({ data }) => {
+  const navigate = useNavigate();
+
   const onItemClick = useCallback((item: string) => {
-    console.log("item", item);
+    navigate(`/discover/playlist?cat=${item}`);
+  }, []);
+
+  const handleMore = useCallback(() => {
+    navigate(`/discover/playlist`);
   }, []);
 
   return (
@@ -28,7 +34,9 @@ const HotRecommend: React.FC<hotRecommendListType> = memo(({ data }) => {
           renderTab={() => (
             <ListLineItem data={tabs} onItemClick={onItemClick} />
           )}
-          renderMore={() => <More renderMoreIcon={<MoreArrow />} />}
+          renderMore={() => (
+            <More renderMoreIcon={<MoreArrow />} onClick={handleMore} />
+          )}
         />
       )}
       <div className="recommend-list">

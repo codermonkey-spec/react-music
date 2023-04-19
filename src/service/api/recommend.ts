@@ -54,6 +54,7 @@ export type rankingItemType = {
 
 export type rankingSongsType = {
   playlist: {
+    id: number;
     name: string;
     coverImgUrl: string;
     tracks: rankingItemType[];
@@ -72,6 +73,43 @@ export const getRankingSongs: requestApi<rankingSongsType> = (
     method: "get",
     params: {
       id,
+    },
+  });
+};
+
+type suggestType = "mobile" | "web";
+
+type searchSuggestType = {
+  result: {
+    /** 专辑 */
+    albums: {
+      name: string;
+      id: number;
+      status: number;
+      picId: number;
+    }[];
+    /** 歌手 */
+    artists: {}[];
+    order: keyof searchSuggestType[];
+    /** 歌单 */
+    playlists: {
+      name: string;
+    }[];
+    /** 单曲 */
+    songs: {}[];
+  };
+};
+
+/** 搜索建议 */
+export const getSearchSuggest: requestApi<searchSuggestType> = (
+  keywords: string,
+  type: suggestType = "web"
+) => {
+  return request("/search/suggest", {
+    method: "get",
+    params: {
+      keywords,
+      type,
     },
   });
 };
