@@ -8,8 +8,10 @@ import { getSearchSuggest } from "@/service/api/recommend";
 
 import styles from "./style.less";
 
+import WyyModal from "@/components/wyy-modal";
+
 const AppHeader = memo(() => {
-  const [] = useState([]);
+  const [visible, setVisible] = useState<boolean>(false);
   const handleSuggest = useCallback(
     debounce((value: string) => {
       getSearchSuggest(value).then((res) => {
@@ -55,9 +57,19 @@ const AppHeader = memo(() => {
             onChange={(e) => handleSuggest(e.target.value)}
           />
           <div className="center">创作者中心</div>
-          <div className="login">登录</div>
+          <div className="login" onClick={() => setVisible(true)}>
+            登录
+          </div>
         </div>
       </div>
+      <WyyModal
+        visible={visible}
+        onMaskClick={() => {
+          setVisible((last) => !last);
+        }}
+      >
+        <div>弹窗内容</div>
+      </WyyModal>
     </div>
   );
 });

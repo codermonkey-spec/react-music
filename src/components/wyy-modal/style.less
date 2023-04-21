@@ -1,0 +1,47 @@
+.wyy-modal {
+  position: absolute;
+  :global {
+    .mask,.wrap {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      cursor: pointer;
+    }
+
+    .mask {
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: 10;
+    }
+    .wrap {
+      z-index: 1000;
+      transform-origin: center; 
+      display: flex;
+      align-items: center;
+      .container {
+        width: 530px;
+        margin: 0 auto;
+        border-radius: 4px;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
+        background-color: #fff;
+
+        .header {
+          position: relative;
+          margin: 0;
+          padding: 0 45px 0 18px;
+          height: 38px;
+          line-height: 38px;
+          z-index: 10;
+          border-bottom: 1px solid #191919;
+          border-radius: 4px 4px 0 0;
+          background: #2d2d2d;
+          font-weight: bold;
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+    }
+    
+  }
+}
