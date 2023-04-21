@@ -66,7 +66,11 @@ const RankingSongsList: React.FC<RankingSongsListProps> = memo(
               );
             })
             .concat(
-              <div className="more" key="more">
+              <div
+                className="more"
+                key="more"
+                onClick={() => onCoverImgClick && onCoverImgClick(data)}
+              >
                 查看更多&gt;
               </div>
             )}

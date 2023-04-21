@@ -120,6 +120,7 @@ const RightInfo: React.FC<{
                 <animated.tr style={style} key={item.id} className="row">
                   <td className="index">{item.index}</td>
                   <td>
+                    {/* <img src={} /> */}
                     <span
                       className="sprite_table table-play"
                       onClick={() => handlePlay(item.id)}
