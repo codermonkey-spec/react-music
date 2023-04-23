@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { debounce } from "lodash";
 import { Input } from "antd";
@@ -8,10 +8,10 @@ import { getSearchSuggest } from "@/service/api/recommend";
 
 import styles from "./style.less";
 
-import WyyModal from "@/components/wyy-modal";
-
+import LoginModal from "./login-modal";
 const AppHeader = memo(() => {
   const [visible, setVisible] = useState<boolean>(false);
+
   const handleSuggest = useCallback(
     debounce((value: string) => {
       getSearchSuggest(value).then((res) => {
@@ -62,14 +62,7 @@ const AppHeader = memo(() => {
           </div>
         </div>
       </div>
-      <WyyModal
-        visible={visible}
-        onMaskClick={() => {
-          setVisible((last) => !last);
-        }}
-      >
-        <div>弹窗内容</div>
-      </WyyModal>
+      <LoginModal visible={visible} setVisible={setVisible} />
     </div>
   );
 });

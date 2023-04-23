@@ -29,7 +29,7 @@
         .header {
           position: relative;
           margin: 0;
-          padding: 0 45px 0 18px;
+          padding: 0 18px;
           height: 38px;
           line-height: 38px;
           z-index: 10;
@@ -39,6 +39,22 @@
           font-weight: bold;
           font-size: 14px;
           color: #fff;
+          display: flex;
+          justify-content: space-between;
+          .title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #fff;
+        
+          }
+
+          .closeIcon {
+            cursor: pointer; 
+            width: 10px;
+            height: 10px;
+            font-size: 18px;
+            color: #eee;
+          }
         }
       }
     }
