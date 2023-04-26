@@ -11,13 +11,13 @@ const RightSingers = memo(() => {
   const [singerRank, setSingerRank] = useState<
     singerRankType["list"]["artists"]
   >([]);
+
   useEffect(() => {
     getHotSingers().then((res) => {
       setHotSingers(res.artists);
     });
 
     getSingerRank().then((res) => {
-      console.log("res", res);
       setSingerRank(res.list.artists);
     });
   }, []);
