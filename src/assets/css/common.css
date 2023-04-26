@@ -75,6 +75,10 @@ body, textarea, select, input, button {
   background: url(../img/playlist.png) no-repeat 0 9999px;
 }
 
+.login_img {
+  background: url(../img/login_img.png) no-repeat 0 9999px;
+}
+
 .ant-message {
   top:calc(100vh - 60px)!important;
   

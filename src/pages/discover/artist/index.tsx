@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import classNames from "classnames";
 import { artistCategories } from "@/assets/data/local-data";
 import styles from "./style.less";

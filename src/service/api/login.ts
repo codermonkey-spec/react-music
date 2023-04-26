@@ -1,13 +1,12 @@
 import { request } from "..";
 import { requestApi } from "@/types";
 
-type qrKeyType = {
+/** 获取二维码key */
+export const getQrKey: requestApi<{
   data: {
     unikey: string;
   };
-};
-
-export const getQrKey: requestApi<qrKeyType> = () => {
+}> = () => {
   return request("/login/qr/key", {
     method: "get",
     params: {
@@ -16,6 +15,7 @@ export const getQrKey: requestApi<qrKeyType> = () => {
   });
 };
 
+/** 根据key获取二维码图片 */
 export const getCreateQrImg: requestApi<{
   data: {
     qrurl: string;

@@ -1,5 +1,5 @@
 import type { hotSingersType, singerRankType } from "@/service/api/artist";
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { getHotSingers, getSingerRank } from "@/service/api/artist";
 import styles from "./style.less";
 
@@ -24,11 +24,7 @@ const RightSingers = memo(() => {
 
   return (
     <div className={styles["right-singers"]}>
-      <TopTitle
-        icon={false}
-        title="热门歌手"
-        // renderMore={<div>更多&gt;</div>}
-      />
+      <TopTitle icon={false} title="热门歌手" />
       <div className="content">
         {hotSingers.map((item) => {
           return <RecommendItem {...item} key={item.id} />;

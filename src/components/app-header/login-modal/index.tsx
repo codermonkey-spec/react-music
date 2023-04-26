@@ -46,7 +46,7 @@ const LoginModal: React.FC<LoginModalType> = memo(({ visible, setVisible }) => {
     >
       <div className="login-wrap">
         {isOtherWay ? (
-          <OtherWay />
+          <OtherWay setIsOtherWay={setIsOtherWay} />
         ) : (
           <NormalWay qrurl={qrurl} setIsOtherWay={setIsOtherWay} />
         )}
