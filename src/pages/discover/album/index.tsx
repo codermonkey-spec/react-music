@@ -1,7 +1,7 @@
 import type { TupleToUnion } from "@/types";
 import type { newAlbumItemType } from "@/service/api/album";
 
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Pagination, PaginationProps } from "antd";
 import { getAllNewAlbum, getNewAlbum } from "@/service/api/album";
 import styles from "./style.less";

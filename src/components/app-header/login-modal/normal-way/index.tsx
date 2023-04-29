@@ -1,14 +1,14 @@
 import React, { memo } from "react";
-
+import { LOGINWAY } from "../../constants";
 import { QRCode } from "antd";
 type normalWayType = {
   qrurl: string;
-  setIsOtherWay: React.Dispatch<boolean>;
+  setLoginway: React.Dispatch<LOGINWAY>;
 };
 const loginImg =
   "https://p5.music.126.net/obj/wo3DlcOGw6DClTvDisK1/9643571155/525c/faac/2dc6/fe695c03c7c358ddaa4651736b26a55f.png";
 
-const NormalWay: React.FC<normalWayType> = memo(({ qrurl, setIsOtherWay }) => {
+const NormalWay: React.FC<normalWayType> = memo(({ qrurl, setLoginway }) => {
   return (
     <div>
       <div className="login-content">
@@ -23,7 +23,7 @@ const NormalWay: React.FC<normalWayType> = memo(({ qrurl, setIsOtherWay }) => {
           <div className="text">使用 网易云音乐APP 扫码登录</div>
         </div>
       </div>
-      <div className="other" onClick={() => setIsOtherWay(true)}>
+      <div className="other" onClick={() => setLoginway(LOGINWAY.other)}>
         选择其他登录方式
       </div>
     </div>

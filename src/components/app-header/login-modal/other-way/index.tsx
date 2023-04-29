@@ -5,40 +5,43 @@ import {
   WeiboCircleOutlined,
   WeiboOutlined,
 } from "@ant-design/icons";
+import { qrCodeImg, loginWayUrl, LOGINWAY } from "../../constants";
 import styles from "./style.less";
 
 type otherWayType = {
-  setIsOtherWay: React.Dispatch<boolean>;
+  setLoginway: React.Dispatch<LOGINWAY>;
 };
-const qrCodeImg =
-  "https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/9656441793/9f07/c197/3af2/f07b8d6ef20964be159ce812841fc9d2.png";
 
 const loginWays = [
   {
     label: "微信登录",
     icon: <WechatOutlined style={{ color: "#1AAD19" }} />,
+    onClick: () => window.open(loginWayUrl.WECHAT),
   },
   {
     label: "QQ登录",
     icon: <QqOutlined style={{ color: "#3f5dbf" }} />,
+    onClick: () => window.open(loginWayUrl.QQ),
   },
   {
     label: "微博登录",
     icon: <WeiboCircleOutlined style={{ color: "#ff5b36" }} />,
+    onClick: () => window.open(loginWayUrl.WEIBO),
   },
   {
     label: "网易邮箱账号登录",
     icon: <WeiboOutlined style={{ color: "#EA6A5A" }} />,
+    onClick: () => console.log("网易云邮箱登录"),
   },
 ];
-const OtherWay: React.FC<otherWayType> = memo(({ setIsOtherWay }) => {
+const OtherWay: React.FC<otherWayType> = memo(({ setLoginway }) => {
   const [isAgree, setIsAgree] = useState(false);
 
   const handleQrCodeClick = () => {
     if (!isAgree) {
       return;
     }
-    setIsOtherWay(false);
+    setLoginway(LOGINWAY.default);
   };
 
   const handleIsAgreeChange = () => {
@@ -58,7 +61,11 @@ const OtherWay: React.FC<otherWayType> = memo(({ setIsOtherWay }) => {
         <div className="right">
           {loginWays.map((item) => {
             return (
-              <div className="right-item" key={item.label}>
+              <div
+                className="right-item"
+                key={item.label}
+                onClick={item.onClick}
+              >
                 <div>{item.icon}</div>
                 <div>{item.label}</div>
               </div>

@@ -1,12 +1,19 @@
 import React, { memo, useEffect, useState } from "react";
 import { getQrKey, getCreateQrImg } from "@/service/api/login";
 
+import { LOGINWAY } from "../constants";
 import styles from "./style.less";
 
 import WyyModal from "@/components/wyy-modal";
 import NormalWay from "./normal-way";
 import OtherWay from "./other-way";
+import EmailWay from "./email-way";
 
+const loginComs = {
+  0: NormalWay,
+  1: OtherWay,
+  2: EmailWay,
+};
 type LoginModalType = {
   visible: boolean;
   setVisible: React.Dispatch<boolean> &
@@ -15,7 +22,7 @@ type LoginModalType = {
 
 const LoginModal: React.FC<LoginModalType> = memo(({ visible, setVisible }) => {
   const [qrurl, setQrurl] = useState(" ");
-  const [isOtherWay, setIsOtherWay] = useState(false);
+  const [loginway, setLoginway] = useState(LOGINWAY.default);
 
   useEffect(() => {
     getQrUrl();
@@ -29,7 +36,7 @@ const LoginModal: React.FC<LoginModalType> = memo(({ visible, setVisible }) => {
 
   useEffect(() => {
     if (visible) {
-      setIsOtherWay(false);
+      setLoginway(LOGINWAY.default);
     }
   }, [visible]);
 
@@ -45,11 +52,14 @@ const LoginModal: React.FC<LoginModalType> = memo(({ visible, setVisible }) => {
       classNames={styles["wrapper-modal"]}
     >
       <div className="login-wrap">
-        {isOtherWay ? (
-          <OtherWay setIsOtherWay={setIsOtherWay} />
-        ) : (
-          <NormalWay qrurl={qrurl} setIsOtherWay={setIsOtherWay} />
-        )}
+        {Object.entries(loginComs).map((item, index) => {
+          const Coms = item[1];
+          return (
+            index === loginway && (
+              <Coms qrurl={qrurl} setLoginway={setLoginway} />
+            )
+          );
+        })}
       </div>
     </WyyModal>
   );
