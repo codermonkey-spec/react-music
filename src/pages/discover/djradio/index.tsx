@@ -4,7 +4,7 @@ import type {
   programTopListType,
   djRecommendTypes,
 } from "@/service/api/djradio";
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import {
   getDjCat,
   getProgramRecommend,

@@ -16,6 +16,7 @@ type allNewAlbumListProps = {
 };
 
 type areaType = TupleToUnion<["全部", "华语", "欧美", "韩国", "日本"]>;
+
 const tabs = ["全部", "华语", "欧美", "韩国", "日本"];
 const defaultPageSize = 35;
 

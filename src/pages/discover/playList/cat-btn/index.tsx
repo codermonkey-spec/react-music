@@ -14,6 +14,7 @@ const CatBtn: React.FC<{
 }> = memo(({ setCat, cat }) => {
   const [catInfo, setCatInfo] = useState<catInfoType | null>(null);
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
     getCatList().then((res) => {
       setCatInfo(res);
@@ -34,10 +35,10 @@ const CatBtn: React.FC<{
       placement="bottom"
       content={
         <CatContent
+          cat={cat}
           catInfo={catInfo}
           setOpen={setOpen}
           setCat={setCat}
-          cat={cat}
         />
       }
       title={<div className="all-cat">全部风格</div>}

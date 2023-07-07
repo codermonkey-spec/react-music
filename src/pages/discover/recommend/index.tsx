@@ -5,7 +5,7 @@ import type {
 } from "@/service/api/recommend";
 import type { newAlbumItemType } from "@/service/api/album";
 
-import React, { memo, useEffect, useState } from "react";
+import  { memo, useEffect, useState } from "react";
 import {
   getBanners,
   getHotRecommend,

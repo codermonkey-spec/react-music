@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from "react";
+import  { memo, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 import { shallowEqual } from "react-redux";
@@ -59,7 +59,7 @@ const Player = memo(() => {
     }
   }, [currentSong]);
 
-  const onSliderChange = (value: number) => {
+  const onSliderChange = (value:number) => {
     const currentTime = (value / 100) * duration;
     if (audioRef.current) {
       audioRef.current.currentTime = currentTime / 1000;
@@ -78,7 +78,6 @@ const Player = memo(() => {
     }
 
     // 更新歌词
-
     let index = currentLyrics.findIndex((item) => item.time > currentTime);
     if (index < 0) {
       index = currentLyrics.length - 1;

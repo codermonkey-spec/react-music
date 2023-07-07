@@ -8,7 +8,7 @@ export default function Discover() {
   const { pathname } = useLocation();
   const [currIndex, setCurrIndex] = useState(
     discoverMenu.findIndex((item) => item.link === pathname)
-  );
+  )
   const springRef = useSpringRef();
 
   const transitions = useTransition(currIndex, {
@@ -48,6 +48,7 @@ export default function Discover() {
           </animated.div>
         ))}
       </Suspense>
+
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import type { playListType } from "@/service/api/play-list";
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useTransition, animated } from "@react-spring/web";
 import { useLocation } from "react-router-dom";
 import { parse } from "qs";
@@ -9,6 +9,9 @@ import styles from "./style.less";
 import TopTitle from "@/components/top-title";
 import CatBtn from "./cat-btn";
 import RecommendItem from "@/components/recommend-item";
+
+const pageSize = 35;
+const defaultCategory = "hot";
 
 const PlayList = memo(() => {
   const { search } = useLocation();
@@ -28,7 +31,7 @@ const PlayList = memo(() => {
   });
 
   useEffect(() => {
-    getPlayList(35, "hot", cat).then((res) => {
+    getPlayList(pageSize, defaultCategory, cat).then((res) => {
       const newData = res.playlists.map((item) => ({
         ...item,
         picUrl: item.coverImgUrl,
@@ -40,12 +43,16 @@ const PlayList = memo(() => {
   return (
     <div className={styles["play-list"]}>
       <div className="wrap-v2 play-list-content">
-        <TopTitle
-          title={cat}
-          icon={false}
-          renderTab={() => <CatBtn setCat={setCat} cat={cat} />}
-          renderMore={<div>热门</div>}
-        />
+        {
+          dataSource.length > 0 && (
+            <TopTitle
+              title={cat}
+              icon={false}
+              renderTab={() => <CatBtn setCat={setCat} cat={cat} />}
+              renderMore={<div>热门</div>}
+            />
+          )
+        }
         <div className="content">
           {transitions((style, item) => (
             <animated.div style={style} key={item.id} className="wrap">
@@ -59,3 +66,4 @@ const PlayList = memo(() => {
 });
 
 export default PlayList;
+
