@@ -1,0 +1,19 @@
+name: 网易云音乐project
+
+on:
+  push:
+    branches: 
+    - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@main
+        env: 
+          FOLDER: build
+          BUILD_SCRIPT: npm install && npm run build
+        
+      
