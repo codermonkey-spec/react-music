@@ -11,7 +11,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@main
       - name: deploy
-        uses: JamesIves/github-pages-deploy-action@main
+        uses: JamesIves/github-pages-deploy-action@v4.6.8
         env: 
           FOLDER: build
           BUILD_SCRIPT: npm install && npm run build
